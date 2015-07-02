@@ -8,7 +8,7 @@ var bindling = require('../lib/bindling');
 
 after(function(){
 	var container = document.querySelector('#test');
-	//container.innerHTML = '';
+	container.innerHTML = '';
 });
 
 
