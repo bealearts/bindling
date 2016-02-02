@@ -125,7 +125,7 @@ describe('bindling', function() {
 
 		var elements = domify(templateOpen);
 
-		container.appendChild(elements);
+		container.appendChild(elements.cloneNode(true));
 
 		bindling(container, model);
 
