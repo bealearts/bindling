@@ -1,4 +1,4 @@
-# bindling
+# bindling [![Build Status](https://travis-ci.org/bealearts/bindling.svg)](https://travis-ci.org/bealearts/bindling) [![npm version](https://badge.fury.io/js/bindling.svg)](http://badge.fury.io/js/bindling)
 Declarative View-Model-Binding for HTML
 
 ## Installation
