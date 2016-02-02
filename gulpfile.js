@@ -23,7 +23,7 @@ gulp.task('build', ['lint']);
 
 
 
-var sources = ['lib/**', 'test/**', 'gulpfile.js'];
+var sources = ['lib/**/*.js', 'test/**/*.js', 'gulpfile.js'];
 var isDev = false;
 
 
