@@ -27,7 +27,8 @@ describe('bindling', function() {
 		var model = {
 			age: 42, 
 			name: 'Steve',
-			gender: 'male'
+			gender: 'male',
+			enabled: false
 		};
 
 		var element = bindling(template, model);
@@ -53,6 +54,7 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
+			enabled: false,
 			update: function(value) {
 				this.gender = value;
 			},
@@ -90,7 +92,8 @@ describe('bindling', function() {
 		var model = {
 			age: 42, 
 			name: 'Steve',
-			gender: 'male'
+			gender: 'male',
+			enabled: false
 		};
 
 		var element = domify(template);
@@ -120,7 +123,8 @@ describe('bindling', function() {
 		var model = {
 			age: 42, 
 			name: 'Steve',
-			gender: 'male'
+			gender: 'male',
+			enabled: false
 		};
 
 		var elements = domify(templateOpen);
@@ -138,7 +142,27 @@ describe('bindling', function() {
 			expect(name.textContent).to.equal('Bob');
 			done();
 		}, 100);
-	});				
+	});	
+
+
+	it('updates the DOM from the model with a binding value', function() {
+
+		var model = {
+			age: 42, 
+			name: 'Steve',
+			gender: 'male',
+			enabled: false
+		};
+
+		var element = bindling(template, model);
+
+		container.appendChild(element);
+		expect(element).to.not.be.null;
+
+		var button = element.querySelector('button');
+
+		expect(button.disabled).to.equal(false);
+	});			
 
 });
 
