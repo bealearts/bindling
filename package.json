@@ -1,7 +1,7 @@
 {
   "name": "bindling",
   "description": "Declarative View-Model-Binding for HTML",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "lib/bindling.js",
   "repository": {
     "type": "git",
