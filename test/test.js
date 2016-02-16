@@ -9,7 +9,7 @@ var bindling = require('../lib/bindling');
 
 after(function(){
 	var container = document.querySelector('#test');
-	container.innerHTML = '';
+	//container.innerHTML = '';
 });
 
 
@@ -28,12 +28,14 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
-			enabled: false
+			disabled: false
 		};
 
 		var element = bindling(template, model);
 
 		container.appendChild(element);
+
+		/* jshint expr: true */
 		expect(element).to.not.be.null;
 
 		var name = element.querySelector('div:nth-of-type(1) span');
@@ -54,7 +56,7 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
-			enabled: false,
+			disabled: false,
 			update: function(value) {
 				this.gender = value;
 			},
@@ -66,6 +68,8 @@ describe('bindling', function() {
 		var element = bindling(template, model);
 
 		container.appendChild(element);
+		
+		/* jshint expr: true */
 		expect(element).to.not.be.null;
 
 		var gender = element.querySelector('div:nth-of-type(2) span');
@@ -73,6 +77,9 @@ describe('bindling', function() {
 		expect(gender.textContent).to.equal('male');
 
 		var input = element.querySelector('div:nth-of-type(2) input');
+
+		expect(input.value).to.equal('male');
+
 		input.value = 'female';
 
 		var event = document.createEvent('Event');
@@ -93,7 +100,7 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
-			enabled: false
+			disabled: false
 		};
 
 		var element = domify(template);
@@ -102,6 +109,7 @@ describe('bindling', function() {
 
 		bindling(container, model);
 
+		/* jshint expr: true */
 		expect(element).to.not.be.null;
 
 		var name = element.querySelector('div:nth-of-type(1) span');
@@ -124,7 +132,7 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
-			enabled: false
+			disabled: false
 		};
 
 		var elements = domify(templateOpen);
@@ -151,18 +159,46 @@ describe('bindling', function() {
 			age: 42, 
 			name: 'Steve',
 			gender: 'male',
-			enabled: false
+			disabled: true
 		};
 
 		var element = bindling(template, model);
 
 		container.appendChild(element);
+
+		/* jshint expr: true */
 		expect(element).to.not.be.null;
 
 		var button = element.querySelector('button');
 
-		expect(button.disabled).to.equal(false);
-	});			
+		expect(button.disabled).to.equal(true);
+
+		var gender = element.querySelector('div:nth-of-type(2) span');
+
+		expect(gender.textContent).to.equal('male');
+	});	
+
+
+	it('updates the DOM from the model with a template value', function() {
+
+		var model = {
+			age: 42, 
+			name: 'Steve',
+			gender: 'male',
+			disabled: true
+		};
+
+		var element = bindling(template, model);
+
+		container.appendChild(element);
+
+		/* jshint expr: true */
+		expect(element).to.not.be.null;
+
+		var input = element.querySelector('div:nth-of-type(1) input');
+
+		expect(input.value).to.equal('42 years old');
+	});				
 
 });
 

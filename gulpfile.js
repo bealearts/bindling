@@ -61,6 +61,8 @@ gulp.task('build-tests', function() {
 gulp.task('watch', function() {
 	isDev = true;
 
+	gulp.start('run-tests');
+
 	plugins.watch(sources, function() {
 		gulp.start('run-tests');
 	});
