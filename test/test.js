@@ -179,7 +179,7 @@ describe('bindling', function() {
 	});	
 
 
-	it('updates the DOM from the model with a template value', function() {
+	it('updates the DOM from the model with a template value', function(done) {
 
 		var model = {
 			age: 42, 
@@ -198,6 +198,13 @@ describe('bindling', function() {
 		var input = element.querySelector('div:nth-of-type(1) input');
 
 		expect(input.value).to.equal('42 years old');
+
+		model.age = 17;
+
+		setTimeout(function() {
+			expect(input.value).to.equal('17 years old');
+			done();
+		}, 100);
 	});				
 
 });
