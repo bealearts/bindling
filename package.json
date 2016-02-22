@@ -31,7 +31,6 @@
     "gulp-jshint": "^1.11.0",
     "gulp-load-plugins": "^0.10.0",
     "gulp-mocha-phantomjs": "^0.6.1",
-    "phantomjs": "1.9.1 - 1.9.7-15",
     "gulp-util": "^3.0.5",
     "gulp-watch": "^4.2.4",
     "html2js-browserify": "^1.0.0",
@@ -39,6 +38,7 @@
     "object.observe": "^0.2.4",
     "run-sequence": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.2"
+    "watchify": "^3.2.2",
+    "phantomjs": "^1.9.17"
   }
 }
