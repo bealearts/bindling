@@ -26,6 +26,6 @@ document.querySelector('body').appendChild(element);
 template.html
 ```html
 <section>
-  <input type="text" on-input="update(this.value)"><span>${name}</span>
+  <input type="text" on-input="update(this.value)"><span>{name}</span>
 </section>
 ```
